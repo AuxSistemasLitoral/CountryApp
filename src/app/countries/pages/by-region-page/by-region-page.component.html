@@ -1,1 +1,24 @@
-<p>by-region-page works!</p>
+<!-- Título de la sección -->
+<h2>By Region</h2>
+<hr>
+<!-- Fila para la barra de búsqueda -->
+<div class="row">
+  <div class="col">
+    <!-- Componente de barra de búsqueda compartida -->
+    <!-- Cuando se emite el evento "onValue", se invoca el método "searchByRegion" -->
+    <shared-search-box
+      (onValue)="searchByRegion($event)"
+      placeholder="Search by Region "
+    ></shared-search-box>
+  </div>
+</div>
+
+<!-- Fila para mostrar los resultados -->
+<div class="row">
+  <div class="col">
+    <hr>
+    <!-- Componente de tabla de países compartido -->
+    <!-- El arreglo "countries" se pasa como entrada al componente "countries-table" -->
+    <countries-table [countries]="countries"></countries-table>
+  </div>
+</div>

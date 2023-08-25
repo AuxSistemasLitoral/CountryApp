@@ -1,18 +1,26 @@
+<!-- Título de la sección -->
 <h2>By Capital</h2>
 <hr>
+<!-- Fila para la barra de búsqueda -->
 <div class="row">
   <div class="col">
-        <!--SearChaBox-->
-       <shared-search-box
-        (onValue)="searchByCapital($event)"
-       placeholder="Search by capital "></shared-search-box>
+    <!-- Componente de barra de búsqueda compartida -->
+    <!-- Cuando ocurre el evento "onDebounce", se invoca el método "searchByCapital" -->
+    <shared-search-box
+      (onDebounce)="searchByCapital($event)"
+      placeholder="Search by capital "
+    ></shared-search-box>
   </div>
 </div>
 
+<!-- Fila para mostrar los resultados -->
 <div class="row">
   <div class="col">
-       <hr>
-      <countries-table [countries]="countries"></countries-table>
+    <hr>
+    <!-- Componente de spinner de carga compartido, visible si isLoading es verdadero -->
+    <shared-loadingspinner *ngIf="isLoading"></shared-loadingspinner>
+    <!-- Componente de tabla de países compartido -->
+    <!-- El arreglo "countries" se pasa como entrada al componente "countries-table" -->
+    <countries-table [countries]="countries"></countries-table>
   </div>
 </div>
-

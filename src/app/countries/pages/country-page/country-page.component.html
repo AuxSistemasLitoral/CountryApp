@@ -1,1 +1,72 @@
-<p>country-page works!</p>
+<!-- Plantilla para el caso de carga -->
+<ng-template #loading>
+  <div class="alert alert-info text-center">
+    Please wait one moment
+  </div>
+</ng-template>
+
+<!-- Estructura para mostrar los detalles del país -->
+<div *ngIf="country; else loading"> <!-- Si hay un país, muestra los detalles, de lo contrario, muestra el mensaje de carga -->
+  <div class="row">
+    <div class="col-12">
+      <!-- Título del país -->
+      <h2>País: <strong>{{country.name.common}}</strong></h2>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <!-- Sección de la bandera -->
+      <h3>Bandera</h3>
+      <img [src]="country.flags.svg" [alt]="country.name.common" class="img-thumbnail">
+    </div>
+    <div class="col">
+      <!-- Sección de información -->
+      <h3>Información</h3>
+      <ul class="list-group">
+        <!-- Detalles de población, código, capital y gentilicio -->
+        <li class="list-group-item">
+          <strong>Población: </strong>{{country.population | number}}
+        </li>
+        <li class="list-group-item">
+          <strong>Código: </strong>{{country.cca3}}
+        </li>
+        <li class="list-group-item">
+          <strong>Capital: </strong>
+          <span>{{country.capital}}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>Gentilicio: </strong>
+          <span>{{country.demonyms['fra'].f}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <!-- Sección de traducciones -->
+      <h3>Traducciones</h3>
+      <div class="d-flex flex-wrap">
+        <!-- Muestra las traducciones en diferentes idiomas -->
+        <span class="badge bg-primary m-1">{{country.translations['ara'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['fra'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['jpn'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['kor'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['rus'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['srp'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['zho'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['urd'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['ita'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['spa'].common}}</span>
+        <!-- <span class="badge bg-primary m-1">{{country.currencies['MXN'].name}}</span> -->
+      </div>
+      <!-- Sección de tamaño -->
+      <h3>Tamaño</h3>
+      <div class="d-flex flex-wrap">
+        <!-- Muestra el área del país -->
+        <span class="badge bg-primary m-1">{{country.area}}</span>
+        <strong>KM</strong>
+      </div>
+    </div>
+  </div>
+</div>

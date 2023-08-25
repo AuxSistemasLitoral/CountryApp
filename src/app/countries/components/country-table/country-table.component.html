@@ -1,11 +1,14 @@
-<div *ngIf="countries.length=== 0; else table" class="alert alert-warning text-center">
+<!-- Estructura condicional: Si la longitud del arreglo 'countries' es 0, muestra un mensaje; de lo contrario, muestra la tabla -->
+<div *ngIf="countries.length === 0; else table" class="alert alert-warning text-center">
   No hay países que mostrar
 </div>
 
-
+<!-- Definición de plantilla alternativa 'table' -->
 <ng-template #table>
+  <!-- Tabla con estilo de interacción 'hover' -->
   <table class="table table-hover">
     <thead>
+      <!-- Fila de encabezado -->
       <tr>
         <th>#</th>
         <th>Icon</th>
@@ -17,22 +20,27 @@
       </tr>
     </thead>
     <tbody>
+      <!-- Iteración a través del arreglo 'countries' -->
       <tr *ngFor="let country of countries; let i = index">
+        <!-- Celda para el número de fila -->
         <td>{{i + 1 }}</td>
-        <td>
-          {{country.flag}}
-        </td>
+        <!-- Celda para la propiedad 'flag' del país -->
+        <td>{{country.flag}}</td>
+        <!-- Celda para mostrar una imagen de bandera -->
         <td>
           <img [src]="country.flags.png" [alt]="country.name.common">
         </td>
+        <!-- Celda para el nombre común del país -->
         <td>{{country.name.common}}</td>
+        <!-- Celda para la capital del país -->
         <td>{{country.capital}}</td>
+        <!-- Celda para la población del país con formato numérico -->
         <td>{{country.population | number}}</td>
+        <!-- Celda con enlace de router que dirige a una vista de detalles del país -->
         <td>
-          <a href="#">Ver mas</a>
+          <a [routerLink]="['/countries/by', country.cca3]">Info</a>
         </td>
       </tr>
     </tbody>
-
   </table>
 </ng-template>
