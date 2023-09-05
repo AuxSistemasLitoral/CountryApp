@@ -8,10 +8,15 @@
     <!-- Cuando ocurre el evento "onDebounce", se invoca el método "searchByCapital" -->
     <shared-search-box
       (onDebounce)="searchByCapital($event)"
-      placeholder="Search by capital "
+      placeholder="Search by capital"
+      [initialValue]="initialValue"
     ></shared-search-box>
   </div>
 </div>
+
+
+ <!--[initialValue] = "initialValue"-->
+
 
 <!-- Fila para mostrar los resultados -->
 <div class="row">

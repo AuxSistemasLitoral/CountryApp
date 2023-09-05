@@ -1,17 +1,16 @@
-.sppinner-container{
-  align-items: center;
-  background-color: black;
-  border-radius: 20px;
-  bottom: 15px;
-  color: white;
-  display: flex;
-  padding: 5px 10px;
-  position: fixed;
-  right: 15px;
-  box-shadow: 0px 0px 5px rgba(0, 5, 0, 0.5);
-  }
+.sppinner-container {
+  align-items: center; /* Centra los elementos verticalmente dentro del contenedor */
+  background-color: black; /* Color de fondo del contenedor */
+  border-radius: 20px; /* Borde redondeado */
+  bottom: 15px; /* Distancia desde la parte inferior del contenedor al borde del viewport */
+  color: white; /* Color del texto dentro del contenedor */
+  display: flex; /* Utiliza el modelo de diseño flexbox para los elementos internos */
+  padding: 5px 10px; /* Espaciado interno */
+  position: fixed; /* Posición fija en la ventana */
+  right: 15px; /* Distancia desde el borde derecho del contenedor al borde del viewport */
+  box-shadow: 0px 0px 5px rgba(0, 5, 0, 0.5); /* Sombra alrededor del contenedor */
+}
 
-  span{
-    margin-left: 10px;
-  }
-
+span {
+  margin-left: 10px; /* Margen izquierdo para el elemento <span> dentro del contenedor */
+}

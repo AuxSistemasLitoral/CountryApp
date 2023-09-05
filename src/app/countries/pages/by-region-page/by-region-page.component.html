@@ -6,10 +6,13 @@
   <div class="col">
     <!-- Componente de barra de búsqueda compartida -->
     <!-- Cuando se emite el evento "onValue", se invoca el método "searchByRegion" -->
-    <shared-search-box
-      (onValue)="searchByRegion($event)"
-      placeholder="Search by Region "
-    ></shared-search-box>
+    <button *ngFor="let region of regions" class="btn mx-2"
+    [ngClass]="{'btn-outline-primary': selectedRegion === region}"
+    (click)="searchByRegion(region)"
+    >
+    <!--Con el *ngFor recorremos las regiones del arreglo declarado en el archivo ts y le damos unos estilos que al presionar el click sea seleccionado-->
+      {{region}}
+    </button>
   </div>
 </div>
 
@@ -22,3 +25,4 @@
     <countries-table [countries]="countries"></countries-table>
   </div>
 </div>
+

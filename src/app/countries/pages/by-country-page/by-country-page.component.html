@@ -7,9 +7,11 @@
     <!-- Componente de barra de búsqueda compartida -->
     <!-- Cuando se emite el evento "onValue", se invoca el método "searchByCountry" -->
     <shared-search-box
-      (onValue)="searchByCountry($event)"
+      (onDebounce)="searchByCountry($event)"
       placeholder="Search by Country "
+      [initialValue]="initialValue"
     ></shared-search-box>
+    <!-- El metodo devounce es para hacer el cambio de llamado de países en cada una de las páginas" -->
   </div>
 </div>
 
@@ -22,3 +24,4 @@
     <countries-table [countries]="countries"></countries-table>
   </div>
 </div>
+
